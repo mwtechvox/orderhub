@@ -1,0 +1,12 @@
+{
+  "title": "OrderHub",
+  "language": "mn",
+  "description": "Facebook Page-ийн мессеж, нийтлэл, сэтгэгдлийг нэг ажлын орчноос удирдана.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": true,
+    "ignoreReducedMotion": false
+  }
+}
