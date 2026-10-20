@@ -1,5 +1,4 @@
 import Icon from "@/components/ui/Icon";
-import { Avatar } from "@/components/ui";
 import type { Account } from "@/types/api";
 
 export default function Filters({
@@ -42,7 +41,6 @@ export default function Filters({
         </select>
       </label>
       <label className="filter-wrap account-filter">
-        <Avatar store size="sm" />
         <span className="sr-only">Хаяг</span>
         <select
           aria-label="Хаяг"
