@@ -896,6 +896,566 @@ blockquote {
   padding: 15px 0;
 }
 
+/* Botgo login experience */
+.login-experience {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(365px, 0.84fr);
+  min-height: 100dvh;
+  max-width: none;
+  margin: 0;
+  padding: clamp(18px, 3vw, 48px);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 14%, rgb(108 222 249 / 20%), transparent 22%),
+    radial-gradient(circle at 89% 91%, rgb(174 231 245 / 24%), transparent 26%),
+    linear-gradient(135deg, #effbfe 0%, #f9fcfd 47%, #eaf7fb 100%);
+}
+.login-experience::before,
+.login-experience::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.login-experience::before {
+  top: -18vw;
+  right: -7vw;
+  width: 39vw;
+  height: 39vw;
+  border: 1px solid rgb(25 166 207 / 14%);
+  background: repeating-radial-gradient(circle, rgb(255 255 255 / 28%) 0 1px, transparent 2px 48px);
+}
+.login-experience::after {
+  bottom: -16vw;
+  left: -12vw;
+  width: 33vw;
+  height: 33vw;
+  background: radial-gradient(circle, rgb(56 196 229 / 16%), transparent 68%);
+}
+.login-aurora {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  opacity: 0.85;
+  filter: blur(1px);
+  transform: rotate(-32deg);
+}
+.login-aurora-one {
+  top: 18%;
+  left: -8%;
+  width: 34%;
+  height: 54px;
+  background: linear-gradient(90deg, transparent, rgb(102 218 244 / 52%), transparent);
+  animation: login-drift 9s ease-in-out infinite alternate;
+}
+.login-aurora-two {
+  right: 10%;
+  bottom: 8%;
+  width: 28%;
+  height: 34px;
+  background: linear-gradient(90deg, transparent, rgb(243 192 100 / 38%), transparent);
+  animation: login-drift 11s ease-in-out -4s infinite alternate-reverse;
+}
+.login-botgo-panel {
+  position: relative;
+  display: flex;
+  min-height: min(800px, calc(100dvh - clamp(36px, 6vw, 96px)));
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 clamp(16px, 4vw, 64px) 0 0;
+  padding: clamp(24px, 4vw, 54px);
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: clamp(24px, 3vw, 38px);
+  background:
+    radial-gradient(circle at 53% 48%, rgb(255 255 255 / 95%) 0 16%, rgb(216 248 253 / 64%) 44%, transparent 69%),
+    linear-gradient(135deg, rgb(17 151 195 / 88%), rgb(56 198 229 / 76%) 52%, rgb(210 247 252 / 82%));
+  box-shadow: 0 26px 60px rgb(29 103 134 / 18%), inset 0 1px 1px rgb(255 255 255 / 56%);
+}
+.login-botgo-panel::after {
+  position: absolute;
+  right: -6%;
+  bottom: -32%;
+  width: 88%;
+  aspect-ratio: 1;
+  content: "";
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 36px rgb(255 255 255 / 5%), 0 0 0 72px rgb(255 255 255 / 5%);
+}
+.login-brand-lockup,
+.login-form-heading,
+.login-message,
+.login-message-bars {
+  display: flex;
+  align-items: center;
+}
+.login-brand-lockup {
+  position: relative;
+  z-index: 5;
+  gap: 10px;
+  color: white;
+  font-size: 19px;
+}
+.login-brand-lockup .marketing-brand-mark {
+  background: white;
+  box-shadow: 0 7px 16px rgb(0 73 103 / 16%);
+}
+.login-brand-lockup .marketing-brand-mark span { background: #1aa8d3; }
+.login-botgo-orbit {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgb(255 255 255 / 42%);
+  border-radius: 50%;
+}
+.login-botgo-orbit-large { top: 19%; left: 15%; width: 72%; aspect-ratio: 1; animation: login-orbit-pulse 4s ease-in-out infinite; }
+.login-botgo-orbit-small { top: 29%; left: 25%; width: 51%; aspect-ratio: 1; border-style: dashed; animation: login-orbit-spin 26s linear infinite; }
+.login-botgo-image {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  bottom: -9%;
+  width: min(76%, 550px);
+  height: auto;
+  filter: drop-shadow(0 28px 23px rgb(6 79 107 / 28%));
+  transform-origin: 55% 87%;
+  animation: login-botgo-float 4.5s ease-in-out infinite;
+}
+.login-message {
+  position: absolute;
+  z-index: 4;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 81%);
+  box-shadow: 0 13px 25px rgb(9 86 115 / 13%);
+  color: #39809a;
+  font-size: 12px;
+  font-weight: 760;
+  backdrop-filter: blur(10px);
+}
+.login-message-first { top: 32%; left: 12%; animation: login-message-float 4s ease-in-out 0.3s infinite; }
+.login-message-second { top: 54%; right: 7%; animation: login-message-float 4.5s ease-in-out -1.5s infinite; }
+.login-message-dot { width: 8px; height: 8px; border-radius: 50%; background: #20b0d7; box-shadow: 0 0 0 4px rgb(32 176 215 / 13%); }
+.login-message-bars { gap: 3px; }
+.login-message-bars i { display: block; width: 4px; height: 11px; border-radius: 3px; background: #f0b958; }
+.login-message-bars i:nth-child(2) { height: 15px; }
+.login-message-bars i:nth-child(3) { height: 8px; }
+.login-spark { position: absolute; z-index: 4; color: #fff8c9; text-shadow: 0 0 12px rgb(255 240 164 / 68%); font-size: 26px; animation: login-sparkle 2.6s ease-in-out infinite; }
+.login-spark-one { top: 28%; right: 17%; }
+.login-spark-two { top: 46%; left: 19%; font-size: 15px; animation-delay: -1.2s; }
+.login-welcome-copy {
+  position: relative;
+  z-index: 5;
+  width: min(400px, 58%);
+  color: white;
+}
+.login-welcome-copy .marketing-kicker { color: #ddf8ff; }
+.login-welcome-copy h1 { margin: 0; font-size: clamp(31px, 3.2vw, 52px); letter-spacing: -0.06em; line-height: 1.05; }
+.login-welcome-copy > p:last-child { margin: 13px 0 0; color: rgb(255 255 255 / 80%); font-size: 15px; }
+.login-experience .login-form {
+  align-self: center;
+  width: min(100%, 435px);
+  margin: 0;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid rgb(255 255 255 / 86%);
+  border-radius: 26px;
+  background: rgb(255 255 255 / 76%);
+  box-shadow: 0 22px 56px rgb(26 94 120 / 14%);
+  backdrop-filter: blur(18px);
+}
+.login-form-heading { gap: 14px; }
+.login-form-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: linear-gradient(135deg, #149dcc, #59d0ec); box-shadow: 0 9px 18px rgb(25 171 213 / 22%); color: white; font-size: 21px; font-weight: 800; }
+.login-experience .login-form .eyebrow { margin: 0 0 5px; color: #189ac5; font-size: 11px; letter-spacing: 0.15em; }
+.login-experience .login-form h2 { margin: 0; color: #1b2a3c; font-size: 30px; letter-spacing: -0.045em; }
+.login-experience .login-form .muted { margin: 22px 0 30px; color: #748294; }
+.login-experience .login-form label { display: grid; gap: 8px; margin-top: 18px; color: #405165; font-size: 13px; font-weight: 730; }
+.login-experience .login-form input { width: 100%; min-height: 50px; border: 1px solid #dce8ec; border-radius: 12px; padding: 0 14px; background: rgb(255 255 255 / 84%); color: #1c2b3c; outline-color: #1ba8d2; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+.login-experience .login-form input:focus { border-color: #4bc4e2; box-shadow: 0 0 0 4px rgb(45 181 219 / 14%); transform: translateY(-1px); }
+.login-experience .login-form .primary { width: 100%; min-height: 52px; margin-top: 26px; border: 0; border-radius: 13px; background: linear-gradient(120deg, #138fbc, #42c6e5); box-shadow: 0 12px 23px rgb(22 168 211 / 24%); color: white; font-weight: 780; }
+.login-experience .login-form .primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 15px 28px rgb(22 168 211 / 32%); }
+.login-experience .login-form .primary:disabled { cursor: wait; opacity: 0.82; }
+.login-form-footnote { margin: 17px 0 0; color: #91a0ad; font-size: 11px; text-align: center; }
+.login-experience.is-entering .login-form { animation: login-form-depart 0.56s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.login-experience.is-entering .login-botgo-image { animation: login-botgo-dash 0.56s cubic-bezier(0.16, 0.84, 0.31, 1) forwards; }
+.login-experience.is-entering .login-botgo-panel { animation: login-panel-brighten 0.56s ease forwards; }
+.login-experience.is-entering .login-message,
+.login-experience.is-entering .login-spark { animation: login-particle-out 0.46s ease forwards; }
+@keyframes login-botgo-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+@keyframes login-message-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes login-sparkle { 0%, 100% { transform: scale(0.7) rotate(0); opacity: 0.45; } 50% { transform: scale(1.15) rotate(18deg); opacity: 1; } }
+@keyframes login-orbit-pulse { 0%, 100% { transform: scale(0.98); opacity: 0.55; } 50% { transform: scale(1.03); opacity: 0.9; } }
+@keyframes login-orbit-spin { to { transform: rotate(360deg); } }
+@keyframes login-drift { to { transform: translate3d(6vw, -2vw, 0) rotate(-27deg); } }
+@keyframes login-form-depart { to { transform: translateX(16vw) scale(0.94); opacity: 0; filter: blur(7px); } }
+@keyframes login-botgo-dash { 0% { transform: translateY(0) rotate(0); } 62% { transform: translate3d(15vw, -3vh, 0) rotate(4deg) scale(1.05); } 100% { transform: translate3d(75vw, -13vh, 0) rotate(13deg) scale(1.2); opacity: 0; } }
+@keyframes login-panel-brighten { to { filter: brightness(1.13) saturate(1.14); } }
+@keyframes login-particle-out { to { transform: translate3d(11vw, -7vh, 0) scale(0.4); opacity: 0; } }
+@media (max-width: 900px) {
+  .login-experience { grid-template-columns: 1fr; gap: 24px; padding: 18px; }
+  .login-botgo-panel { min-height: 420px; margin: 0; }
+  .login-experience .login-form { width: min(100%, 500px); margin: 0 auto 30px; }
+  .login-botgo-image { right: 8%; width: min(66%, 460px); }
+  .login-welcome-copy { width: min(360px, 58%); }
+}
+@media (max-width: 560px) {
+  .login-experience { padding: 12px; }
+  .login-botgo-panel { min-height: 360px; padding: 25px; border-radius: 22px; }
+  .login-brand-lockup { font-size: 16px; }
+  .login-botgo-image { right: 0; bottom: -13%; width: min(76%, 360px); }
+  .login-welcome-copy { width: 56%; }
+  .login-welcome-copy h1 { font-size: 30px; }
+  .login-welcome-copy > p:last-child { font-size: 12px; }
+  .login-message-first { top: 32%; left: 8%; }
+  .login-message-second { top: 48%; right: 5%; }
+  .login-message { padding: 8px 10px; font-size: 10px; }
+  .login-spark-one { right: 9%; }
+  .login-experience .login-form { padding: 28px 24px; border-radius: 22px; }
+  .login-experience .login-form h2 { font-size: 27px; }
+  .login-experience.is-entering .login-form { animation-name: login-form-depart-mobile; }
+}
+@keyframes login-form-depart-mobile { to { transform: translateY(8vh) scale(0.94); opacity: 0; filter: blur(7px); } }
+@media (prefers-reduced-motion: reduce) {
+  .login-experience *, .login-experience *::before, .login-experience *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+/* Marketing home */
+.marketing-page {
+  overflow: hidden;
+  color: #172033;
+  background: #fcfcfb;
+}
+.marketing-hero {
+  position: relative;
+  min-height: min(830px, 100vh);
+  padding: 28px clamp(24px, 7vw, 112px) 0;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 72% 45%, rgb(25 181 226 / 14%), transparent 21%),
+    radial-gradient(circle at 77% 75%, rgb(245 181 90 / 17%), transparent 24%),
+    linear-gradient(180deg, #fff 0%, #fcfdfd 67%, #f5fbfc 100%);
+}
+.marketing-hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 22%;
+  right: -7%;
+  width: min(54vw, 760px);
+  aspect-ratio: 1;
+  content: "";
+  border-radius: 50%;
+  background: conic-gradient(from 150deg, rgb(31 168 212 / 12%), rgb(232 191 116 / 7%), rgb(31 168 212 / 2%), rgb(31 168 212 / 12%));
+  filter: blur(2px);
+}
+.marketing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1180px, 100%);
+  min-height: 70px;
+  margin: 0 auto;
+  padding: 10px 12px 10px 18px;
+  border: 1px solid rgb(21 41 64 / 7%);
+  border-radius: 20px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 12px 34px rgb(21 41 64 / 7%);
+  backdrop-filter: blur(16px);
+}
+.marketing-brand,
+.marketing-nav-actions,
+.marketing-nav-links,
+.marketing-hero-actions,
+.marketing-eyebrow,
+.botgo-status,
+.workspace-demo-bar,
+.workspace-person,
+.workspace-chat-head,
+.workspace-composer,
+.marketing-final {
+  display: flex;
+  align-items: center;
+}
+.marketing-brand {
+  gap: 10px;
+  color: #172033;
+  text-decoration: none;
+  font-size: 18px;
+}
+.marketing-brand-mark {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 4px);
+  align-items: end;
+  gap: 2px;
+  width: 29px;
+  height: 29px;
+  padding: 6px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #13a5d2, #42c9ee);
+  box-shadow: 0 5px 10px rgb(31 168 212 / 25%);
+}
+.marketing-brand-mark span {
+  display: block;
+  border-radius: 3px;
+  background: white;
+}
+.marketing-brand-mark span:nth-child(1) { height: 9px; }
+.marketing-brand-mark span:nth-child(2) { height: 14px; }
+.marketing-brand-mark span:nth-child(3) { height: 18px; }
+.marketing-nav-links {
+  justify-content: center;
+  gap: clamp(18px, 3vw, 38px);
+}
+.marketing-nav-links a,
+.marketing-login {
+  color: #526073;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 650;
+  transition: color 0.18s ease;
+}
+.marketing-nav-links a:hover,
+.marketing-login:hover { color: #149dc9; }
+.marketing-nav-actions { gap: 16px; }
+.marketing-cta,
+.marketing-secondary,
+.marketing-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 750;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.marketing-cta {
+  min-height: 52px;
+  padding: 0 23px;
+  border-radius: 999px;
+  background: linear-gradient(115deg, #119ac6, #41c5e7);
+  box-shadow: 0 12px 24px rgb(21 168 212 / 23%);
+  color: white;
+}
+.marketing-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgb(21 168 212 / 30%); }
+.marketing-cta-small { min-height: 42px; padding: 0 17px; font-size: 14px; }
+.marketing-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(555px, 52%);
+  margin: clamp(78px, 11vh, 128px) 0 0 max(0px, calc((100% - 1134px) / 2));
+}
+.marketing-eyebrow {
+  gap: 8px;
+  width: max-content;
+  margin: 0 0 20px;
+  padding: 7px 12px;
+  border: 1px solid #d9edf3;
+  border-radius: 999px;
+  color: #177fa2;
+  background: rgb(255 255 255 / 84%);
+  font-size: 12px;
+  font-weight: 720;
+}
+.marketing-live-dot,
+.botgo-status-dot { width: 7px; height: 7px; border-radius: 999px; background: #23b4d9; box-shadow: 0 0 0 4px rgb(35 180 217 / 14%); }
+.marketing-hero h1 {
+  max-width: 600px;
+  margin: 0;
+  color: #172033;
+  font-size: clamp(48px, 5.5vw, 82px);
+  font-weight: 780;
+  letter-spacing: -0.075em;
+  line-height: 0.98;
+}
+.marketing-hero h1 span { color: #159dca; }
+.marketing-lede {
+  max-width: 530px;
+  margin: 25px 0 0;
+  color: #617084;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.marketing-hero-actions { gap: 21px; margin-top: 32px; }
+.marketing-secondary { color: #536174; }
+.marketing-secondary:hover { color: #149dc9; transform: translateY(-1px); }
+.botgo-stage {
+  position: absolute;
+  right: max(3vw, calc((100% - 1260px) / 2));
+  bottom: 0;
+  z-index: 0;
+  width: min(52vw, 635px);
+  height: min(78vw, 720px);
+}
+.botgo-halo {
+  position: absolute;
+  right: 4%;
+  bottom: 5%;
+  width: 90%;
+  aspect-ratio: 1;
+  border: 1px solid rgb(31 168 212 / 11%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 255 255 / 5%) 0 38%, rgb(31 168 212 / 8%) 39% 40%, transparent 41%);
+}
+.botgo-image {
+  position: absolute;
+  right: 0;
+  bottom: -3%;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  max-height: 96%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 24px 30px rgb(38 64 81 / 19%));
+}
+.botgo-speech {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  align-items: center;
+  gap: 8px;
+  width: 146px;
+  padding: 13px 15px;
+  border: 1px solid rgb(31 168 212 / 18%);
+  border-radius: 16px;
+  background: rgb(255 255 255 / 86%);
+  box-shadow: 0 14px 30px rgb(37 75 96 / 10%);
+  backdrop-filter: blur(10px);
+}
+.botgo-speech-left { top: 31%; left: -2%; transform: rotate(-5deg); }
+.botgo-speech-right { top: 51%; right: -5%; transform: rotate(5deg); }
+.botgo-speech-dot { grid-row: span 2; width: 8px; height: 8px; border-radius: 50%; background: #26badc; }
+.botgo-speech-line { display: block; width: 100%; height: 6px; border-radius: 10px; background: #d7edf3; }
+.botgo-speech-line-short { width: 68%; }
+.botgo-status {
+  position: absolute;
+  right: 12%;
+  bottom: 5%;
+  z-index: 4;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #e2ebeb;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 93%);
+  box-shadow: 0 10px 25px rgb(30 66 85 / 10%);
+  color: #445366;
+  font-size: 13px;
+  font-weight: 700;
+}
+.marketing-section { max-width: 1180px; margin: 0 auto; padding: 120px 30px; }
+.marketing-section-heading { max-width: 655px; margin: 0 auto; text-align: center; }
+.marketing-kicker { margin: 0 0 13px; color: #1c9fc8; font-size: 12px; font-weight: 800; letter-spacing: 0.13em; }
+.marketing-section h2,
+.marketing-final h2 { margin: 0; color: #172033; font-size: clamp(34px, 4vw, 54px); font-weight: 770; letter-spacing: -0.055em; line-height: 1.08; }
+.marketing-section-heading > p:last-child { margin: 19px 0 0; color: #6b7889; font-size: 16px; line-height: 1.7; }
+.marketing-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 54px; }
+.marketing-steps article,
+.marketing-feature-grid article { padding: 28px; border: 1px solid #e4eef0; border-radius: 20px; background: #fff; box-shadow: 0 10px 35px rgb(28 66 82 / 5%); }
+.marketing-steps span { color: #19a2ce; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; }
+.marketing-steps h3,
+.marketing-feature-grid h3 { margin: 28px 0 9px; font-size: 21px; letter-spacing: -0.03em; }
+.marketing-steps p,
+.marketing-feature-grid p { margin: 0; color: #6c7888; line-height: 1.65; }
+.marketing-workspace { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(470px, 1.2fr); align-items: center; gap: clamp(42px, 8vw, 112px); max-width: none; padding-right: max(30px, calc((100% - 1120px) / 2)); padding-left: max(30px, calc((100% - 1120px) / 2)); background: linear-gradient(110deg, #ecf9fb, #f8fcfd 62%, #fff); }
+.workspace-copy { max-width: 420px; }
+.workspace-copy > p:not(.marketing-kicker) { margin: 22px 0 0; color: #687587; font-size: 16px; line-height: 1.72; }
+.marketing-text-link { margin-top: 28px; color: #149dc9; }
+.marketing-text-link:hover { transform: translateX(3px); }
+.workspace-demo { overflow: hidden; border: 1px solid #dbe9ed; border-radius: 18px; background: white; box-shadow: 0 24px 52px rgb(24 88 111 / 13%); }
+.workspace-demo-bar { justify-content: flex-start; gap: 9px; height: 52px; padding: 0 17px; border-bottom: 1px solid #e6eff1; color: #536174; font-size: 13px; font-weight: 750; }
+.workspace-brand-dot { width: 18px; height: 18px; border-radius: 6px; background: linear-gradient(135deg, #13a5d2, #55cdec); }
+.workspace-online { margin-left: auto; padding: 5px 9px; border-radius: 99px; background: #ebfaf4; color: #188563; font-size: 10px; }
+.workspace-demo-grid { display: grid; grid-template-columns: minmax(190px, 0.72fr) minmax(280px, 1.28fr); min-height: 330px; }
+.workspace-list { padding: 16px 11px; border-right: 1px solid #e8eff1; background: #fcfefe; }
+.workspace-list > p { margin: 0 9px 12px; color: #84909e; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.workspace-person { position: relative; gap: 9px; padding: 10px 9px; border-radius: 10px; }
+.workspace-person.selected { background: #eaf8fc; }
+.workspace-person strong,
+.workspace-person small,
+.workspace-chat-head strong,
+.workspace-chat-head small { display: block; }
+.workspace-person strong,
+.workspace-chat-head strong { color: #263446; font-size: 12px; }
+.workspace-person small,
+.workspace-chat-head small { margin-top: 2px; color: #8290a0; font-size: 10px; }
+.workspace-person i { position: absolute; right: 9px; padding: 2px 6px; border-radius: 50px; background: #21abd2; color: white; font-size: 10px; font-style: normal; }
+.workspace-avatar { display: inline-grid; flex: 0 0 auto; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: #d7f2fa; color: #158bad; font-size: 11px; font-weight: 800; }
+.workspace-avatar.pink { background: #fff0f3; color: #dd6680; }
+.workspace-avatar.gold { background: #fff5dd; color: #c48a29; }
+.workspace-chat { display: flex; flex-direction: column; background: #f7fbfc; }
+.workspace-chat-head { gap: 9px; padding: 15px 17px; border-bottom: 1px solid #e6eff1; background: white; }
+.workspace-messages { flex: 1; padding: 23px 17px; }
+.workspace-bubble { width: max-content; max-width: 82%; margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; font-size: 11px; line-height: 1.45; }
+.workspace-bubble.incoming { background: white; box-shadow: 0 4px 12px rgb(24 78 96 / 7%); color: #425164; }
+.workspace-bubble.outgoing { margin-left: auto; border-bottom-right-radius: 3px; background: linear-gradient(135deg, #159dca, #48c8e6); color: white; }
+.workspace-messages > small { display: block; text-align: right; color: #8c98a6; font-size: 10px; }
+.workspace-composer { gap: 8px; margin: 0 12px 12px; padding: 10px 12px; border: 1px solid #e4edef; border-radius: 9px; background: white; color: #9aa5ae; font-size: 10px; }
+.workspace-composer span { display: grid; width: 20px; height: 20px; place-items: center; margin-left: auto; border-radius: 6px; background: #18a2cc; color: white; font-size: 13px; }
+.marketing-features { padding-top: 125px; padding-bottom: 125px; }
+.marketing-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+.feature-icon { display: grid; width: 43px; height: 43px; place-items: center; border-radius: 13px; background: #e5f8fc; color: #109bc5; font-size: 21px; }
+.marketing-final { justify-content: space-between; gap: 30px; max-width: 1120px; margin: 0 auto 62px; padding: clamp(34px, 6vw, 70px); border-radius: 26px; background: #172033; }
+.marketing-final h2 { max-width: 670px; color: white; }
+.marketing-final .marketing-kicker { color: #61d7f1; }
+@media (max-width: 860px) {
+  .marketing-nav-links { display: none; }
+  .marketing-hero { min-height: 880px; }
+  .marketing-hero-copy { width: min(560px, 100%); margin-top: 72px; }
+  .botgo-stage { right: 50%; bottom: -1%; width: min(74vw, 560px); height: 570px; transform: translateX(50%); opacity: 0.83; }
+  .marketing-hero-copy { z-index: 3; }
+  .marketing-steps,
+  .marketing-feature-grid { grid-template-columns: 1fr; max-width: 550px; margin-right: auto; margin-left: auto; }
+  .marketing-workspace { grid-template-columns: 1fr; padding: 88px 30px; }
+  .workspace-copy { max-width: 620px; }
+}
+@media (max-width: 560px) {
+  .marketing-hero { min-height: 760px; padding: 14px 18px 0; }
+  .marketing-nav { min-height: 58px; padding: 8px 9px 8px 12px; border-radius: 16px; }
+  .marketing-brand { font-size: 16px; }
+  .marketing-brand-mark { width: 26px; height: 26px; }
+  .marketing-login { display: none; }
+  .marketing-nav-actions { gap: 0; }
+  .marketing-cta-small { min-height: 37px; padding: 0 13px; font-size: 12px; }
+  .marketing-hero-copy { margin-top: 58px; }
+  .marketing-eyebrow { font-size: 10px; }
+  .marketing-hero h1 { font-size: clamp(46px, 14vw, 62px); }
+  .marketing-lede {
+    position: relative;
+    z-index: 4;
+    margin-right: -9px;
+    margin-left: -9px;
+    padding: 8px 9px;
+    border-radius: 12px;
+    background: rgb(255 255 255 / 48%);
+    font-size: 15px;
+    line-height: 1.65;
+    text-shadow: 0 1px 8px rgb(255 255 255 / 94%);
+    backdrop-filter: blur(4px);
+  }
+  .marketing-hero-actions { gap: 15px; margin-top: 24px; }
+  .marketing-cta { min-height: 47px; padding: 0 17px; font-size: 13px; }
+  .marketing-secondary { font-size: 13px; }
+  .botgo-stage { width: min(94vw, 470px); height: 400px; bottom: 0; }
+  .botgo-image { bottom: -6%; }
+  .botgo-speech { width: 98px; padding: 9px 10px; gap: 5px; border-radius: 12px; }
+  .botgo-speech-left { top: 27%; left: -2%; }
+  .botgo-speech-right { top: 45%; right: -3%; }
+  .botgo-status { right: 3%; bottom: 5%; padding: 8px 10px; font-size: 11px; }
+  .marketing-section { padding: 80px 22px; }
+  .marketing-section h2,
+  .marketing-final h2 { font-size: 35px; }
+  .marketing-workspace { padding: 72px 18px; }
+  .workspace-demo-grid { grid-template-columns: 1fr; }
+  .workspace-list { display: none; }
+  .workspace-chat { min-height: 290px; }
+  .marketing-final { display: block; margin: 0 18px 36px; padding: 34px 25px; }
+  .marketing-final .marketing-cta { margin-top: 26px; }
+}
+
 /* Social workspace design system */
 :root {
   --canvas: #f6fbf9;
