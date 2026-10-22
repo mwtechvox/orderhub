@@ -1013,16 +1013,19 @@ blockquote {
 }
 .login-botgo-orbit-large { top: 19%; left: 15%; width: 72%; aspect-ratio: 1; animation: login-orbit-pulse 4s ease-in-out infinite; }
 .login-botgo-orbit-small { top: 29%; left: 25%; width: 51%; aspect-ratio: 1; border-style: dashed; animation: login-orbit-spin 26s linear infinite; }
-.login-botgo-image {
+.login-botgo-motion {
   position: absolute;
   z-index: 3;
   right: 5%;
   bottom: -9%;
   width: min(76%, 550px);
+  transform-origin: 55% 87%;
+}
+.login-botgo-image {
+  display: block;
+  width: 100%;
   height: auto;
   filter: drop-shadow(0 28px 23px rgb(6 79 107 / 28%));
-  transform-origin: 55% 87%;
-  animation: login-botgo-float 4.5s ease-in-out infinite;
 }
 .login-message {
   position: absolute;
@@ -1081,11 +1084,10 @@ blockquote {
 .login-experience .login-form .primary:disabled { cursor: wait; opacity: 0.82; }
 .login-form-footnote { margin: 17px 0 0; color: #91a0ad; font-size: 11px; text-align: center; }
 .login-experience.is-entering .login-form { animation: login-form-depart 0.56s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-.login-experience.is-entering .login-botgo-image { animation: login-botgo-dash 0.56s cubic-bezier(0.16, 0.84, 0.31, 1) forwards; }
+.login-experience.is-entering .login-botgo-motion { animation: login-botgo-dash 0.56s cubic-bezier(0.16, 0.84, 0.31, 1) forwards; }
 .login-experience.is-entering .login-botgo-panel { animation: login-panel-brighten 0.56s ease forwards; }
 .login-experience.is-entering .login-message,
 .login-experience.is-entering .login-spark { animation: login-particle-out 0.46s ease forwards; }
-@keyframes login-botgo-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
 @keyframes login-message-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes login-sparkle { 0%, 100% { transform: scale(0.7) rotate(0); opacity: 0.45; } 50% { transform: scale(1.15) rotate(18deg); opacity: 1; } }
 @keyframes login-orbit-pulse { 0%, 100% { transform: scale(0.98); opacity: 0.55; } 50% { transform: scale(1.03); opacity: 0.9; } }
@@ -1099,14 +1101,14 @@ blockquote {
   .login-experience { grid-template-columns: 1fr; gap: 24px; padding: 18px; }
   .login-botgo-panel { min-height: 420px; margin: 0; }
   .login-experience .login-form { width: min(100%, 500px); margin: 0 auto 30px; }
-  .login-botgo-image { right: 8%; width: min(66%, 460px); }
+  .login-botgo-motion { right: 8%; width: min(66%, 460px); }
   .login-welcome-copy { width: min(360px, 58%); }
 }
 @media (max-width: 560px) {
   .login-experience { padding: 12px; }
   .login-botgo-panel { min-height: 360px; padding: 25px; border-radius: 22px; }
   .login-brand-lockup { font-size: 16px; }
-  .login-botgo-image { right: 0; bottom: -13%; width: min(76%, 360px); }
+  .login-botgo-motion { right: 0; bottom: -13%; width: min(76%, 360px); }
   .login-welcome-copy { width: 56%; }
   .login-welcome-copy h1 { font-size: 30px; }
   .login-welcome-copy > p:last-child { font-size: 12px; }

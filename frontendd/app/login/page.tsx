@@ -42,14 +42,16 @@ export default function Login() {
         </div>
         <div className="login-spark login-spark-one" aria-hidden="true">✦</div>
         <div className="login-spark login-spark-two" aria-hidden="true">✦</div>
-        <Image
-          className="login-botgo-image"
-          src="/botgo-orderhub.png"
-          alt="Малгайтай ботго, OrderHub-ийн туслах дүр"
-          width={1229}
-          height={1280}
-          priority
-        />
+        <div className="login-botgo-motion">
+          <Image
+            className="login-botgo-image"
+            src="/botgo-orderhub.png"
+            alt="Малгайтай ботго, OrderHub-ийн туслах дүр"
+            width={1229}
+            height={1280}
+            priority
+          />
+        </div>
         <div className="login-welcome-copy">
           <p className="marketing-kicker">ТАНЫ ХАЖУУД</p>
           <h1>Харилцагч бүртэйгээ илүү ойр.</h1>
