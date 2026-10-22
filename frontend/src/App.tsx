@@ -4,6 +4,7 @@ import { useAuth } from "@/features/auth/AuthContext";
 import SignInPage from "@/features/auth/SignInPage";
 import InboxPage from "@/features/inbox/InboxPage";
 import IntegrationsPage from "@/features/integrations/IntegrationsPage";
+import LandingPage from "@/features/marketing/LandingPage";
 import PostComposerPage from "@/features/posts/PostComposerPage";
 import PostDetailPage from "@/features/posts/PostDetailPage";
 import PostsPage from "@/features/posts/PostsPage";
@@ -25,9 +26,9 @@ function ProtectedShell() {
 export default function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<SignInPage />} />
       <Route element={<ProtectedShell />}>
-        <Route index element={<Navigate to="/inbox" replace />} />
         <Route path="/inbox" element={<InboxPage />} />
         <Route path="/posts" element={<PostsPage />} />
         <Route path="/posts/new" element={<PostComposerPage />} />
